@@ -1,4 +1,5 @@
 """
+File: ASMGet.py
 Author: Rory Cameron
 Date: 16/10/2025
 Description: Gets URIs from Google ASM
@@ -14,6 +15,30 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 BASE_URL = os.getenv("BASE_URL")
 PROJECT_ID = os.getenv("PROJECT_ID") #Note: If >1 projects, implement GET request for /asm/projects, then iterate over each project with type:Uri
+
+
+"""
+# ====== Example Project-ID Get ======
+
+headers = {
+    "accept": "application/json",
+    "x-apikey": API_KEY,
+}
+
+path = "asm/projects"
+url = BASE_URL + path
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    data = response.json()
+    project_ids = [project.get("id") for project in data.get("data", []) if project.get("id")]
+    print(f"Projects found: {project_ids}")
+else:
+    print(f"[ERROR] {response.status_code}: {response.text}")
+
+# Then create seperate headers for each project and iterate over all, getting entity uris in normal way as below
+"""
 
 
 headers = {
