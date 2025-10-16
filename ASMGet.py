@@ -3,6 +3,7 @@ File: ASMGet.py
 Author: Rory Cameron
 Date: 16/10/2025
 Description: Gets URIs from Google ASM
+ASM API Docs: https://gtidocs.virustotal.com/reference/get_projects
 """
 
 import os
