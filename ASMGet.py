@@ -26,7 +26,7 @@ headers = {
     "x-apikey": API_KEY,
 }
 
-path = "asm/projects"
+path = "projects"
 url = BASE_URL + path
 
 response = requests.get(url, headers=headers)
